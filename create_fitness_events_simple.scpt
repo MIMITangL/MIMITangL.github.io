@@ -1,0 +1,117 @@
+-- Three Month Fitness Plan for Pilot
+-- Simple version that avoids problematic syntax
+
+-- Define the fitness plan events
+set fitnessEvents to {¬
+  {summary:"力量训练日", description:"深蹲、俯卧撑、平板支撑、哑铃划船、有氧运动、拉伸", dayOfWeek:"monday", startTime:"07:00", endTime:"08:30", durationWeeks:12}, ¬
+  {summary:"有氧运动日", description:"骑自行车45-60分钟或椭圆机30分钟", dayOfWeek:"tuesday", startTime:"07:00", endTime:"08:30", durationWeeks:12}, ¬
+  {summary:"羽毛球训练", description:"热身、技术练习、实战对抗、拉伸", dayOfWeek:"wednesday", startTime:"07:00", endTime:"08:45", durationWeeks:12}, ¬
+  {summary:"核心训练日", description:"仰卧起坐、俄罗斯转体、山地攀爬者、死虫式、平板支撑、有氧运动、拉伸", dayOfWeek:"thursday", startTime:"07:00", endTime:"08:00", durationWeeks:12}, ¬
+  {summary:"网球训练", description:"热身、发球练习、底线对拉、实战比赛、拉伸", dayOfWeek:"friday", startTime:"07:00", endTime:"08:45", durationWeeks:12}, ¬
+  {summary:"长距离有氧", description:"骑自行车60-90分钟或长距离步行/徒步", dayOfWeek:"saturday", startTime:"08:00", endTime:"10:00", durationWeeks:12}, ¬
+  {summary:"休息或轻松活动", description:"轻松散步、瑜伽或拉伸", dayOfWeek:"sunday", startTime:"09:00", endTime:"10:10", durationWeeks:12} ¬
+}
+
+-- Function to parse time string
+on parseTime(timeString)
+  set timeComponents to {}
+  set colonPosition to offset of ":" in timeString
+  if colonPosition > 0 then
+    set hours to text 1 thru (colonPosition - 1) of timeString
+    set minutes to text (colonPosition + 1) thru -1 of timeString
+  else
+    set hours to timeString
+    set minutes to "00"
+  end if
+  return {hours as integer, minutes as integer}
+end parseTime
+
+-- Connect to Calendar application
+tell application "Calendar"
+  activate
+  
+  -- Create or select a specific calendar for fitness plans
+  set fitnessCalendarName to "Fitness Plan"
+  set calendarExists to false
+  
+  -- Check if the fitness calendar already exists
+  try
+    repeat with aCalendar in calendars
+      if name of aCalendar is fitnessCalendarName then
+        set calendarExists to true
+        exit repeat
+      end if
+    end repeat
+  on error
+    -- If there's an error checking calendars, assume it doesn't exist
+    set calendarExists to false
+  end try
+  
+  -- Create the calendar if it doesn't exist
+  if calendarExists is false then
+    make new calendar with properties {name:fitnessCalendarName}
+  end if
+  
+  -- Set start date (February 1, 2026)
+  set startDate to current date
+  set startDate to date ("2/1/2026")
+  
+  -- Loop through each event type
+  repeat with eventInfo in fitnessEvents
+    set eventSummary to summary of eventInfo
+    set eventDescription to description of eventInfo
+    set eventDayOfWeek to dayOfWeek of eventInfo
+    set eventStartTime to startTime of eventInfo
+    set eventEndTime to endTime of eventInfo
+    set eventDurationWeeks to durationWeeks of eventInfo
+    
+    -- Calculate first occurrence based on desired day of week
+    set targetDayIndex to 0
+    if eventDayOfWeek is "sunday" then set targetDayIndex to 1
+    if eventDayOfWeek is "monday" then set targetDayIndex to 2
+    if eventDayOfWeek is "tuesday" then set targetDayIndex to 3
+    if eventDayOfWeek is "wednesday" then set targetDayIndex to 4
+    if eventDayOfWeek is "thursday" then set targetDayIndex to 5
+    if eventDayOfWeek is "friday" then set targetDayIndex to 6
+    if eventDayOfWeek is "saturday" then set targetDayIndex to 7
+    
+    -- Find the first occurrence of the specified day starting from February 1, 2026
+    set tempDate to startDate
+    repeat until (weekday of tempDate as integer) = targetDayIndex
+      set tempDate to (tempDate + 1 * days)
+    end repeat
+    
+    -- Create recurring events for the specified duration
+    set counter to 0
+    repeat while counter < eventDurationWeeks
+      -- Parse start and end times for the event
+      set parsedStart to my parseTime(eventStartTime)
+      set parsedEnd to my parseTime(eventEndTime)
+      
+      set hoursStart to item 1 of parsedStart
+      set minutesStart to item 2 of parsedStart
+      set hoursEnd to item 1 of parsedEnd
+      set minutesEnd to item 2 of parsedEnd
+      
+      set hour of tempDate to hoursStart
+      set minutes of tempDate to minutesStart
+      set seconds of tempDate to 0
+      
+      set endDate to tempDate
+      set hour of endDate to hoursEnd
+      set minutes of endDate to minutesEnd
+      set seconds of endDate to 0
+      
+      -- Create the event in the fitness calendar
+      tell calendar fitnessCalendarName
+        make new event with properties {summary:eventSummary, description:eventDescription, start date:tempDate, end date:endDate, allday event:false}
+      end tell
+      
+      -- Move to the next week
+      set tempDate to (tempDate + 7 * days)
+      set counter to counter + 1
+    end repeat
+  end repeat
+  
+  display notification "健身计划已添加到日历中！" with title "日历助手" subtitle "三个月健身计划已创建"
+end tell
