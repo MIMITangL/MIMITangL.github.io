@@ -1575,6 +1575,154 @@
         </div>
     </section>
 
+    <!-- Fitness Plan Section -->
+    <section id="fitness-plan" style="background: #f8fafc; padding: 80px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>三个月运动和饮食管理计划</h2>
+                <p>为飞行员定制的专业健身计划</p>
+            </div>
+            
+            <div class="info-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 25px; margin-top: 40px;">
+                <div class="info-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center;">
+                        <i class="fas fa-calendar-alt"></i> 
+                        <span style="margin-left: 10px;">如何导入日历</span>
+                    </h4>
+                    <p>将以下ICS代码复制并保存为.ics文件，然后导入到您的日历应用中：</p>
+                    <pre id="ics-content" style="background: #f0f0f0; padding: 15px; border-radius: 5px; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word; font-size: 12px; line-height: 1.4; margin: 15px 0;">BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Fitness Plan//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+
+BEGIN:VEVENT
+UID:fitness-plan-month1-week1-monday@clawdbot.example
+DTSTART:20260209T070000
+DTEND:20260209T083000
+SUMMARY:力量训练日
+DESCRIPTION:深蹲、俯卧撑、平板支撑、哑铃划船、有氧运动、拉伸
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=MO
+LOCATION:健身房
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fitness-plan-month1-week1-tuesday@clawdbot.example
+DTSTART:20260210T070000
+DTEND:20260210T083000
+SUMMARY:有氧运动日
+DESCRIPTION:骑自行车45-60分钟或椭圆机30分钟
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=TU
+LOCATION:户外/健身房
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fitness-plan-month1-week1-wednesday@clawdbot.example
+DTSTART:20260211T070000
+DTEND:20260211T084500
+SUMMARY:羽毛球训练
+DESCRIPTION:热身、技术练习、实战对抗、拉伸
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=WE
+LOCATION:羽毛球场
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fitness-plan-month1-week1-thursday@clawdbot.example
+DTSTART:20260212T070000
+DTEND:20260212T080000
+SUMMARY:核心训练日
+DESCRIPTION:仰卧起坐、俄罗斯转体、山地攀爬者、死虫式、平板支撑、有氧运动、拉伸
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=TH
+LOCATION:健身房
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fitness-plan-month1-week1-friday@clawdbot.example
+DTSTART:20260213T070000
+DTEND:20260213T084500
+SUMMARY:网球训练
+DESCRIPTION:热身、发球练习、底线对拉、实战比赛、拉伸
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=FR
+LOCATION:网球场
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fitness-plan-month1-week1-saturday@clawdbot.example
+DTSTART:20260214T080000
+DTEND:20260214T100000
+SUMMARY:长距离有氧
+DESCRIPTION:骑自行车60-90分钟或长距离步行/徒步
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=SA
+LOCATION:户外
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fitness-plan-month1-week1-sunday@clawdbot.example
+DTSTART:20260215T090000
+DTEND:20260215T101000
+SUMMARY:休息或轻松活动
+DESCRIPTION:轻松散步、瑜伽或拉伸
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=SU
+LOCATION:户外/家中
+END:VEVENT
+
+BEGIN:VTIMEZONE
+TZID:Asia/Shanghai
+X-LIC-LOCATION:Asia/Shanghai
+BEGIN:STANDARD
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+
+END:VCALENDAR</pre>
+                    <button onclick="copyIcsContent()" class="btn" style="margin-top: 10px;">复制ICS内容</button>
+                </div>
+                
+                <div class="info-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center;">
+                        <i class="fas fa-file-alt"></i> 
+                        <span style="margin-left: 10px;">三个月健身计划</span>
+                    </h4>
+                    <div id="fitness-plan-content">
+                        <h5>总体目标</h5>
+                        <ul>
+                            <li>提升身体素质和飞行耐力</li>
+                            <li>维持健康体重</li>
+                            <li>增强心肺功能和肌肉力量</li>
+                            <li>改善整体健康状况</li>
+                        </ul>
+                        
+                        <h5>第一个月：基础建立期</h5>
+                        <p><strong>周一 - 力量训练日：</strong>深蹲、俯卧撑、平板支撑、哑铃划船、有氧运动、拉伸</p>
+                        <p><strong>周二 - 有氧运动日：</strong>骑自行车45-60分钟或椭圆机30分钟</p>
+                        <p><strong>周三 - 羽毛球训练：</strong>热身、技术练习、实战对抗、拉伸</p>
+                        <p><strong>周四 - 核心训练日：</strong>仰卧起坐、俄罗斯转体、山地攀爬者、死虫式、平板支撑、有氧运动、拉伸</p>
+                        <p><strong>周五 - 网球训练：</strong>热身、发球练习、底线对拉、实战比赛、拉伸</p>
+                        <p><strong>周六 - 长距离有氧：</strong>骑自行车60-90分钟或长距离步行/徒步</p>
+                        <p><strong>周日 - 休息或轻松活动：</strong>轻松散步、瑜伽或拉伸</p>
+                        
+                        <h5>第二个月：强化提升期</h5>
+                        <p>在第一个月基础上增加训练强度和复杂度</p>
+                        
+                        <h5>第三个月：巩固优化期</h5>
+                        <p>进一步提升训练质量并巩固习惯</p>
+                        
+                        <h5>饮食建议</h5>
+                        <ul>
+                            <li><strong>早餐：</strong>燕麦片或全麦面包、鸡蛋、水果、低脂牛奶或豆浆</li>
+                            <li><strong>午餐：</strong>瘦肉、大量蔬菜、糙米或全麦面条、少量健康脂肪</li>
+                            <li><strong>晚餐：</strong>蛋白质、大量蔬菜、少量碳水化合物、避免过多油腻食物</li>
+                            <li><strong>水分摄入：</strong>每天至少2.5-3升水</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" style="background: #f8fafc;">
         <div class="container">
@@ -2225,6 +2373,23 @@
                 modal.style.display = 'none';
             });
             document.body.style.overflow = 'auto';
+        }
+        
+        // Function to copy ICS content to clipboard
+        function copyIcsContent() {
+            const icsContent = document.getElementById('ics-content').textContent;
+            navigator.clipboard.writeText(icsContent).then(function() {
+                // Show feedback to user
+                const btn = document.querySelector('#fitness-plan button');
+                const originalText = btn.textContent;
+                btn.textContent = '已复制!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert('复制失败，请手动选择并复制内容');
+            });
         }
     </script>
 </body>
