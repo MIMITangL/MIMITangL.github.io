@@ -12,6 +12,20 @@ set fitnessEvents to {¬
   {summary:"休息或轻松活动", description:"轻松散步、瑜伽或拉伸", dayOfWeek:"sunday", startTime:"09:00", endTime:"10:10", durationWeeks:12} ¬
 }
 
+-- Function to parse time string
+on parseTime(timeString)
+  set timeComponents to {}
+  set colonPosition to offset of ":" in timeString
+  if colonPosition > 0 then
+    set hours to text 1 thru (colonPosition - 1) of timeString
+    set minutes to text (colonPosition + 1) thru -1 of timeString
+  else
+    set hours to timeString
+    set minutes to "00"
+  end if
+  return {hours, minutes}
+end parseTime
+
 -- Connect to Calendar application
 tell application "Calendar"
   activate
@@ -67,23 +81,14 @@ tell application "Calendar"
     -- Create recurring events for the specified duration
     set counter to 0
     repeat while counter < eventDurationWeeks
-      -- Set the start and end times for the event
-      set timeComponents to words of eventStartTime
-      set timeComponentsEnd to words of eventEndTime
+      -- Parse start and end times for the event
+      set parsedStart to my parseTime(eventStartTime)
+      set parsedEnd to my parseTime(eventEndTime)
       
-      set hoursStart to item 1 of timeComponents
-      if (count of timeComponents) > 1 then
-        set minutesStart to item 2 of (item 1 of timeComponents split by ":")
-      else
-        set minutesStart to 0
-      end if
-      
-      set hoursEnd to item 1 of timeComponentsEnd
-      if (count of timeComponentsEnd) > 1 then
-        set minutesEnd to item 2 of (item 1 of timeComponentsEnd split by ":")
-      else
-        set minutesEnd to 0
-      end if
+      set hoursStart to item 1 of parsedStart
+      set minutesStart to item 2 of parsedStart
+      set hoursEnd to item 1 of parsedEnd
+      set minutesEnd to item 2 of parsedEnd
       
       set hour of tempDate to hoursStart as integer
       set minutes of tempDate to minutesStart as integer
