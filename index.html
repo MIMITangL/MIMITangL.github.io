@@ -1533,7 +1533,9 @@
             projectDetailLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const targetModal = document.querySelector(this.getAttribute('href'));
+                    const targetId = this.getAttribute('href');
+                    // Remove the '#' prefix to get the actual ID
+                    const targetModal = document.getElementById(targetId.substring(1));
                     if (targetModal) {
                         targetModal.style.display = 'block';
                         document.body.style.overflow = 'hidden';
@@ -1553,12 +1555,14 @@
                 });
             });
             
-            // Close modal when clicking outside content
-            window.addEventListener('click', function(event) {
-                if (event.target.classList.contains('project-modal')) {
-                    event.target.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
+            // Close modal when clicking outside content area
+            document.querySelectorAll('.project-modal').forEach(modal => {
+                modal.addEventListener('click', function(event) {
+                    if (event.target === this) {
+                        this.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
             });
         });
         
