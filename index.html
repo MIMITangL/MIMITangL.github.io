@@ -805,6 +805,140 @@
                     </div>
                 </div>
                 
+                <!-- Daily Content Display -->
+                <div id="daily-content" style="display: none; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); margin-bottom: 40px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 id="selected-date" style="color: var(--primary-color);"></h3>
+                        <button id="close-daily-content" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">关闭</button>
+                    </div>
+                    <div class="info-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;">
+                        <div class="info-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                            <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center;">
+                                <i class="fas fa-newspaper"></i> 
+                                <span style="margin-left: 10px;">微博热搜 Top10</span>
+                            </h4>
+                            <ul id="daily-weibo-hot" style="list-style-type: none; padding: 0;">
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>1.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>2.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>3.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>4.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>5.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>6.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>7.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>8.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>9.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <strong>10.</strong> 示例热搜内容
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                            <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center;">
+                                <i class="fas fa-globe-asia"></i> 
+                                <span style="margin-left: 10px;">重要新闻</span>
+                            </h4>
+                            <ul id="daily-news" style="list-style-type: none; padding: 0;">
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-circle" style="font-size: 0.4em; margin-right: 10px; color: var(--primary-color);"></i>
+                                        示例新闻标题
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-circle" style="font-size: 0.4em; margin-right: 10px; color: var(--primary-color);"></i>
+                                        示例新闻标题
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-circle" style="font-size: 0.4em; margin-right: 10px; color: var(--primary-color);"></i>
+                                        示例新闻标题
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-circle" style="font-size: 0.4em; margin-right: 10px; color: var(--primary-color);"></i>
+                                        示例新闻标题
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                            <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center;">
+                                <i class="fas fa-chart-line"></i> 
+                                <span style="margin-left: 10px;">市场趋势</span>
+                            </h4>
+                            <ul id="daily-market" style="list-style-type: none; padding: 0;">
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-arrow-up" style="color: var(--success-color); margin-right: 10px;"></i>
+                                        示例市场趋势
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-coins" style="color: var(--warning-color); margin-right: 10px;"></i>
+                                        示例市场趋势
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-dollar-sign" style="color: var(--primary-color); margin-right: 10px;"></i>
+                                        示例市场趋势
+                                    </a>
+                                </li>
+                                <li style="padding: 8px 0;">
+                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                        <i class="fas fa-industry" style="color: var(--accent-color); margin-right: 10px;"></i>
+                                        示例市场趋势
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="info-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;">
                     <div class="info-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
                         <h4 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center;">
@@ -1034,16 +1168,60 @@
             }
         });
 
-        // Calendar functionality
+        // Calendar functionality with daily content display
         document.addEventListener('DOMContentLoaded', function() {
             const calendarEl = document.getElementById('calendar');
             const currentMonthYearEl = document.getElementById('current-month-year');
             const prevMonthBtn = document.getElementById('prev-month');
             const nextMonthBtn = document.getElementById('next-month');
+            const dailyContentEl = document.getElementById('daily-content');
+            const selectedDateEl = document.getElementById('selected-date');
+            const closeDailyContentBtn = document.getElementById('close-daily-content');
+            const dailyWeiboHotEl = document.getElementById('daily-weibo-hot');
+            const dailyNewsEl = document.getElementById('daily-news');
+            const dailyMarketEl = document.getElementById('daily-market');
             
             let currentDate = new Date();
             let currentMonth = currentDate.getMonth();
             let currentYear = currentDate.getFullYear();
+            
+            // Sample data for demonstration - in a real implementation, this would come from an API
+            const sampleData = {};
+            
+            // Generate sample data for a few dates
+            const today = new Date();
+            for (let i = 0; i < 30; i++) {
+                const date = new Date();
+                date.setDate(today.getDate() - 15 + i);
+                const dateStr = date.toISOString().split('T')[0];
+                
+                sampleData[dateStr] = {
+                    weiboHot: [
+                        { title: `【${dateStr}】微博热搜1`, url: '#' },
+                        { title: `【${dateStr}】微博热搜2`, url: '#' },
+                        { title: `【${dateStr}】微博热搜3`, url: '#' },
+                        { title: `【${dateStr}】微博热搜4`, url: '#' },
+                        { title: `【${dateStr}】微博热搜5`, url: '#' },
+                        { title: `【${dateStr}】微博热搜6`, url: '#' },
+                        { title: `【${dateStr}】微博热搜7`, url: '#' },
+                        { title: `【${dateStr}】微博热搜8`, url: '#' },
+                        { title: `【${dateStr}】微博热搜9`, url: '#' },
+                        { title: `【${dateStr}】微博热搜10`, url: '#' }
+                    ],
+                    news: [
+                        { title: `【${dateStr}】重要新闻1`, url: '#' },
+                        { title: `【${dateStr}】重要新闻2`, url: '#' },
+                        { title: `【${dateStr}】重要新闻3`, url: '#' },
+                        { title: `【${dateStr}】重要新闻4`, url: '#' }
+                    ],
+                    market: [
+                        { title: `【${dateStr}】市场趋势1`, url: '#' },
+                        { title: `【${dateStr}】市场趋势2`, url: '#' },
+                        { title: `【${dateStr}】市场趋势3`, url: '#' },
+                        { title: `【${dateStr}】市场趋势4`, url: '#' }
+                    ]
+                };
+            }
             
             // Function to render calendar
             function renderCalendar(month, year) {
@@ -1100,10 +1278,96 @@
                         }
                     });
                     
+                    // Add click event to show daily content
+                    dayCell.addEventListener('click', () => {
+                        const clickedDate = new Date(year, month, day);
+                        const dateStr = clickedDate.toISOString().split('T')[0];
+                        showDailyContent(clickedDate, sampleData[dateStr] || {
+                            weiboHot: [],
+                            news: [],
+                            market: []
+                        });
+                    });
+                    
                     dayCell.textContent = day;
                     calendarEl.appendChild(dayCell);
                 }
             }
+            
+            // Function to show daily content
+            function showDailyContent(date, content) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+                selectedDateEl.textContent = date.toLocaleDateString('zh-CN', options);
+                
+                // Clear existing content
+                dailyWeiboHotEl.innerHTML = '';
+                dailyNewsEl.innerHTML = '';
+                dailyMarketEl.innerHTML = '';
+                
+                // Populate Weibo Hot
+                if (content.weiboHot && content.weiboHot.length > 0) {
+                    content.weiboHot.forEach((item, index) => {
+                        const li = document.createElement('li');
+                        li.style.padding = '8px 0';
+                        li.style.borderBottom = '1px solid #eee';
+                        li.innerHTML = `
+                            <a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">
+                                <strong>${index + 1}.</strong> ${item.title}
+                            </a>
+                        `;
+                        dailyWeiboHotEl.appendChild(li);
+                    });
+                } else {
+                    dailyWeiboHotEl.innerHTML = '<li style="padding: 8px 0; text-align: center; color: #999;">暂无数据</li>';
+                }
+                
+                // Populate News
+                if (content.news && content.news.length > 0) {
+                    content.news.forEach(item => {
+                        const li = document.createElement('li');
+                        li.style.padding = '8px 0';
+                        li.style.borderBottom = '1px solid #eee';
+                        li.innerHTML = `
+                            <a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">
+                                <i class="fas fa-circle" style="font-size: 0.4em; margin-right: 10px; color: var(--primary-color);"></i>
+                                ${item.title}
+                            </a>
+                        `;
+                        dailyNewsEl.appendChild(li);
+                    });
+                } else {
+                    dailyNewsEl.innerHTML = '<li style="padding: 8px 0; text-align: center; color: #999;">暂无数据</li>';
+                }
+                
+                // Populate Market Trends
+                if (content.market && content.market.length > 0) {
+                    content.market.forEach(item => {
+                        const li = document.createElement('li');
+                        li.style.padding = '8px 0';
+                        li.style.borderBottom = '1px solid #eee';
+                        li.innerHTML = `
+                            <a href="${item.url}" target="_blank" style="text-decoration: none; color: inherit;">
+                                <i class="fas fa-arrow-up" style="color: var(--success-color); margin-right: 10px;"></i>
+                                ${item.title}
+                            </a>
+                        `;
+                        dailyMarketEl.appendChild(li);
+                    });
+                } else {
+                    dailyMarketEl.innerHTML = '<li style="padding: 8px 0; text-align: center; color: #999;">暂无数据</li>';
+                }
+                
+                // Show the daily content section
+                dailyContentEl.style.display = 'block';
+                
+                // Scroll to the daily content
+                dailyContentEl.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Close daily content
+            closeDailyContentBtn.addEventListener('click', () => {
+                dailyContentEl.style.display = 'none';
+            });
             
             // Event listeners for month navigation
             prevMonthBtn.addEventListener('click', () => {
