@@ -1742,40 +1742,119 @@
             let currentMonth = currentDate.getMonth();
             let currentYear = currentDate.getFullYear();
             
-            // Function to fetch real-time data (simulated for demo)
+            // Function to fetch real-time data
             async function fetchDailyData(dateStr) {
-                // In a real implementation, this would fetch data from an API
-                // For now, we'll simulate with realistic data
-                
-                // Simulate network delay
-                await new Promise(resolve => setTimeout(resolve, 300));
-                
-                return {
-                    weiboHot: [
-                        { title: `【${dateStr}】今日热点话题1`, url: 'https://s.weibo.com/weibo?q=热点话题1' },
-                        { title: `【${dateStr}】热门讨论2`, url: 'https://s.weibo.com/weibo?q=热门讨论2' },
-                        { title: `【${dateStr}】 trending now 3`, url: 'https://s.weibo.com/weibo?q=trending3' },
-                        { title: `【${dateStr}】热议话题4`, url: 'https://s.weibo.com/weibo?q=热议话题4' },
-                        { title: `【${dateStr}】热搜榜5`, url: 'https://s.weibo.com/weibo?q=热搜榜5' },
-                        { title: `【${dateStr}】热门微博6`, url: 'https://s.weibo.com/weibo?q=热门微博6' },
-                        { title: `【${dateStr}】话题讨论7`, url: 'https://s.weibo.com/weibo?q=话题讨论7' },
-                        { title: `【${dateStr}】热点聚焦8`, url: 'https://s.weibo.com/weibo?q=热点聚焦8' },
-                        { title: `【${dateStr}】热门搜索9`, url: 'https://s.weibo.com/weibo?q=热门搜索9' },
-                        { title: `【${dateStr}】今日热搜10`, url: 'https://s.weibo.com/weibo?q=今日热搜10' }
-                    ],
-                    news: [
-                        { title: `【${dateStr}】国内重要新闻`, url: 'https://news.sina.com.cn' },
-                        { title: `【${dateStr}】国际时事动态`, url: 'https://news.qq.com' },
-                        { title: `【${dateStr}】财经资讯速递`, url: 'https://finance.sina.com.cn' },
-                        { title: `【${dateStr}】科技前沿进展`, url: 'https://tech.163.com' }
-                    ],
-                    market: [
-                        { title: `【${dateStr}】股市行情分析`, url: 'https://quotes.money.163.com' },
-                        { title: `【${dateStr}】数字货币动态`, url: 'https://www.coindesk.com' },
-                        { title: `【${dateStr}】外汇市场走势`, url: 'https://www.forex.com' },
-                        { title: `【${dateStr}】行业研究报告`, url: 'https://www.bloomberg.com' }
-                    ]
-                };
+                try {
+                    // Try to fetch real Weibo hot search data using browser extension
+                    // This requires the Clawdbot browser extension to be installed and authorized
+                    const weiboResponse = await fetch('/api/weibo/hot', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        credentials: 'include'
+                    });
+                    
+                    let weiboHot = [];
+                    if (weiboResponse.ok) {
+                        const weiboData = await weiboResponse.json();
+                        weiboHot = weiboData.data || [];
+                    } else {
+                        // Fallback to static data if API is not available
+                        console.log('Using fallback Weibo data');
+                        weiboHot = [
+                            { title: `【${dateStr}】今日热点话题1`, url: 'https://s.weibo.com/weibo?q=热点话题1' },
+                            { title: `【${dateStr}】热门讨论2`, url: 'https://s.weibo.com/weibo?q=热门讨论2' },
+                            { title: `【${dateStr}】 trending now 3`, url: 'https://s.weibo.com/weibo?q=trending3' },
+                            { title: `【${dateStr}】热议话题4`, url: 'https://s.weibo.com/weibo?q=热议话题4' },
+                            { title: `【${dateStr}】热搜榜5`, url: 'https://s.weibo.com/weibo?q=热搜榜5' },
+                            { title: `【${dateStr}】热门微博6`, url: 'https://s.weibo.com/weibo?q=热门微博6' },
+                            { title: `【${dateStr}】话题讨论7`, url: 'https://s.weibo.com/weibo?q=话题讨论7' },
+                            { title: `【${dateStr}】热点聚焦8`, url: 'https://s.weibo.com/weibo?q=热点聚焦8' },
+                            { title: `【${dateStr}】热门搜索9`, url: 'https://s.weibo.com/weibo?q=热门搜索9' },
+                            { title: `【${dateStr}】今日热搜10`, url: 'https://s.weibo.com/weibo?q=今日热搜10' }
+                        ];
+                    }
+                    
+                    // Fetch news data
+                    const newsResponse = await fetch('/api/news', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    
+                    let news = [];
+                    if (newsResponse.ok) {
+                        const newsData = await newsResponse.json();
+                        news = newsData.data || [];
+                    } else {
+                        // Fallback to static news data
+                        news = [
+                            { title: `【${dateStr}】国内重要新闻`, url: 'https://news.sina.com.cn' },
+                            { title: `【${dateStr}】国际时事动态`, url: 'https://news.qq.com' },
+                            { title: `【${dateStr}】财经资讯速递`, url: 'https://finance.sina.com.cn' },
+                            { title: `【${dateStr}】科技前沿进展`, url: 'https://tech.163.com' }
+                        ];
+                    }
+                    
+                    // Fetch market data
+                    const marketResponse = await fetch('/api/market', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    
+                    let market = [];
+                    if (marketResponse.ok) {
+                        const marketData = await marketResponse.json();
+                        market = marketData.data || [];
+                    } else {
+                        // Fallback to static market data
+                        market = [
+                            { title: `【${dateStr}】股市行情分析`, url: 'https://quotes.money.163.com' },
+                            { title: `【${dateStr}】数字货币动态`, url: 'https://www.coindesk.com' },
+                            { title: `【${dateStr}】外汇市场走势`, url: 'https://www.forex.com' },
+                            { title: `【${dateStr}】行业研究报告`, url: 'https://www.bloomberg.com' }
+                        ];
+                    }
+                    
+                    return {
+                        weiboHot,
+                        news,
+                        market
+                    };
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                    // Return fallback data in case of any error
+                    return {
+                        weiboHot: [
+                            { title: `【${dateStr}】今日热点话题1`, url: 'https://s.weibo.com/weibo?q=热点话题1' },
+                            { title: `【${dateStr}】热门讨论2`, url: 'https://s.weibo.com/weibo?q=热门讨论2' },
+                            { title: `【${dateStr}】 trending now 3`, url: 'https://s.weibo.com/weibo?q=trending3' },
+                            { title: `【${dateStr}】热议话题4`, url: 'https://s.weibo.com/weibo?q=热议话题4' },
+                            { title: `【${dateStr}】热搜榜5`, url: 'https://s.weibo.com/weibo?q=热搜榜5' },
+                            { title: `【${dateStr}】热门微博6`, url: 'https://s.weibo.com/weibo?q=热门微博6' },
+                            { title: `【${dateStr}】话题讨论7`, url: 'https://s.weibo.com/weibo?q=话题讨论7' },
+                            { title: `【${dateStr}】热点聚焦8`, url: 'https://s.weibo.com/weibo?q=热点聚焦8' },
+                            { title: `【${dateStr}】热门搜索9`, url: 'https://s.weibo.com/weibo?q=热门搜索9' },
+                            { title: `【${dateStr}】今日热搜10`, url: 'https://s.weibo.com/weibo?q=今日热搜10' }
+                        ],
+                        news: [
+                            { title: `【${dateStr}】国内重要新闻`, url: 'https://news.sina.com.cn' },
+                            { title: `【${dateStr}】国际时事动态`, url: 'https://news.qq.com' },
+                            { title: `【${dateStr}】财经资讯速递`, url: 'https://finance.sina.com.cn' },
+                            { title: `【${dateStr}】科技前沿进展`, url: 'https://tech.163.com' }
+                        ],
+                        market: [
+                            { title: `【${dateStr}】股市行情分析`, url: 'https://quotes.money.163.com' },
+                            { title: `【${dateStr}】数字货币动态`, url: 'https://www.coindesk.com' },
+                            { title: `【${dateStr}】外汇市场走势`, url: 'https://www.forex.com' },
+                            { title: `【${dateStr}】行业研究报告`, url: 'https://www.bloomberg.com' }
+                        ]
+                    };
+                }
             }
             
             // Function to update the information panels
