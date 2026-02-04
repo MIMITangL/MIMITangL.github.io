@@ -804,7 +804,48 @@
                         <h3>知识库概述</h3>
                         <p>全面的A320/A330飞行操纵程序知识库，涵盖从飞行前准备到飞行后检查的完整操作流程。该知识库基于制造商手册、航空公司标准操作程序(SOP)以及国际民航组织(ICAO)标准编制。</p>
                         
-                        <h3>飞行前程序</h3>
+                        <h3>飞机系统理论知识</h3>
+                        <h4>A320/A330电传操纵系统</h4>
+                        <ul>
+                            <li><strong>基本原理：</strong>通过计算机接收飞行员指令，控制舵面动作，实现更精确的飞行控制</li>
+                            <li><strong>控制法则：</strong>正常法则、备用法则、直接法则</li>
+                            <li><strong>保护功能：</strong>载荷因子限制、俯仰姿态保护、大迎角保护、高速保护</li>
+                            <li><strong>侧杆操作：</strong>双侧杆信号代数叠加，无机械连接</li>
+                        </ul>
+                        
+                        <h4>飞行管理系统(FMS)</h4>
+                        <ul>
+                            <li><strong>组成：</strong>FMGC（飞行管理引导计算机）、MCDU（多功能控制显示组件）、FCU（飞行控制组件）</li>
+                            <li><strong>功能：</strong>飞行计划、性能优化、导航管理、制导指令</li>
+                            <li><strong>数据库：</strong>导航数据库、性能数据库</li>
+                        </ul>
+                        
+                        <h4>液压系统</h4>
+                        <ul>
+                            <li><strong>系统构成：</strong>绿、蓝、黄三个独立系统，分别由不同泵驱动</li>
+                            <li><strong>工作压力：</strong>3000 psi（约207 bar）</li>
+                            <li><strong>用户设备：</strong>飞行控制、起落架、襟翼缝翼、刹车等</li>
+                            <li><strong>应急模式：</strong>RAT（冲压空气涡轮）提供应急液压动力</li>
+                        </ul>
+                        
+                        <h4>电气系统</h4>
+                        <ul>
+                            <li><strong>主电源：</strong>两台IDG（整体驱动发电机），每台额定功率90kVA</li>
+                            <li><strong>辅助电源：</strong>APU发电机、外部电源接口</li>
+                            <li><strong>应急电源：</strong>静变流机、RAT发电机、电瓶</li>
+                            <li><strong>电压规格：</strong>交流115V/400Hz，直流28V</li>
+                        </ul>
+                        
+                        <h4>空调与增压系统</h4>
+                        <ul>
+                            <li><strong>引气来源：</strong>发动机引气、APU引气、地面气源</li>
+                            <li><strong>温度控制：</strong>双环路温度传感器，控制范围18°C-29°C</li>
+                            <li><strong>客舱增压：</strong>自动模式下巡航时最大压差8.6psi</li>
+                            <li><strong>增压控制：</strong>两个CPC（客舱压力控制器）自动切换</li>
+                        </ul>
+                        
+                        <h4>飞行操纵程序</h4>
+                        <h5>飞行前程序</h5>
                         <ul>
                             <li><strong>驾驶舱准备：</strong>电源供应、EFIS面板设置、FMS初始化</li>
                             <li><strong>外部检查：</strong>机身、发动机、起落架、控制面检查</li>
@@ -812,7 +853,7 @@
                             <li><strong>系统测试：</strong>液压、电气、飞行控制、防冰系统测试</li>
                         </ul>
                         
-                        <h3>起飞程序</h3>
+                        <h5>起飞程序</h5>
                         <ul>
                             <li><strong>滑行阶段：</strong>地面通讯、滑行路线确认、跑道进入程序</li>
                             <li><strong>起飞前检查：</strong>最终系统检查、性能数据核实、起飞构型确认</li>
@@ -820,7 +861,7 @@
                             <li><strong>初始爬升：</strong>速度转换、航路截获、高度截获</li>
                         </ul>
                         
-                        <h3>巡航程序</h3>
+                        <h5>巡航程序</h5>
                         <ul>
                             <li><strong>高度转换：</strong>过渡高度/高度层转换</li>
                             <li><strong>航路管理：</strong>航路点监控、燃油管理、颠簸区域规避</li>
@@ -828,26 +869,80 @@
                             <li><strong>通讯协调：</strong>ATC通讯、公司频率、相邻管制扇区交接</li>
                         </ul>
                         
-                        <h3>下降程序</h3>
+                        <h5>下降程序</h5>
                         <ul>
                             <li><strong>下降计划：</strong>下降顶点计算、下降率管理、速度管理</li>
                             <li><strong>进近准备：</strong>目的地天气评估、进近方式选择、着陆性能计算</li>
                             <li><strong>进近阶段：</strong>ILS截获、下滑道跟踪、构型设置</li>
                         </ul>
                         
-                        <h3>着陆程序</h3>
+                        <h5>着陆程序</h5>
                         <ul>
                             <li><strong>最终进近：</strong>稳定进近标准、决断高度判断</li>
                             <li><strong>着陆阶段：</strong>拉平、接地、反推使用、刹车程序</li>
                             <li><strong>脱离跑道：</strong>脱离程序、滑行至停机位</li>
                         </ul>
                         
-                        <h3>非正常程序</h3>
+                        <h3>机型限制数据</h3>
+                        <h4>A320技术参数</h4>
                         <ul>
-                            <li><strong>发动机失效：</strong>单发运行、飘降程序、备降决策</li>
-                            <li><strong>系统故障：</strong>冗余系统使用、MEL程序执行</li>
-                            <li><strong>恶劣天气：</strong>风切变、湍流、低能见度运行</li>
-                            <li><strong>紧急情况：</strong>紧急下降、紧急撤离、医疗急救程序</li>
+                            <li><strong>基本型号：</strong>A320-200</li>
+                            <li><strong>最大起飞重量：</strong>78,000 kg</li>
+                            <li><strong>最大着陆重量：</strong>66,000 kg</li>
+                            <li><strong>最大无油重量：</strong>62,500 kg</li>
+                            <li><strong>最大零燃油重量：</strong>62,500 kg</li>
+                            <li><strong>最大载重：</strong>19,500 kg</li>
+                            <li><strong>最大燃油容量：</strong>27,200 L</li>
+                            <li><strong>最大航程：</strong>6,300 km</li>
+                            <li><strong>巡航速度：</strong>马赫数0.78</li>
+                            <li><strong>最大巡航速度：</strong>马赫数0.82</li>
+                            <li><strong>最大操作高度：</strong>39,800 ft</li>
+                            <li><strong>座舱压差：</strong>8.6 psi</li>
+                        </ul>
+                        
+                        <h4>A330技术参数</h4>
+                        <ul>
+                            <li><strong>基本型号：</strong>A330-300</li>
+                            <li><strong>最大起飞重量：</strong>233,000 kg</li>
+                            <li><strong>最大着陆重量：</strong>182,000 kg</li>
+                            <li><strong>最大无油重量：</strong>165,000 kg</li>
+                            <li><strong>最大载重：</strong>49,500 kg</li>
+                            <li><strong>最大燃油容量：</strong>139,090 L</li>
+                            <li><strong>最大航程：</strong>11,750 km</li>
+                            <li><strong>巡航速度：</strong>马赫数0.82</li>
+                            <li><strong>最大操作高度：</strong>41,000 ft</li>
+                            <li><strong>座舱压差：</strong>8.6 psi</li>
+                            <li><strong>发动机推力：</strong>68,000-72,000 lbf</li>
+                        </ul>
+                        
+                        <h3>非正常程序</h3>
+                        <h4>发动机失效</h4>
+                        <ul>
+                            <li><strong>识别步骤：</strong>ECAM警告、推力不对称、飞机偏转</li>
+                            <li><strong>处置程序：</strong>保持控制、切断失效发动机、执行飘降程序</li>
+                            <li><strong>飘降策略：</strong>最佳飘降速度、目标高度、备降场选择</li>
+                            <li><strong>单发运行：</strong>延长续航能力、性能降级、限制操作</li>
+                        </ul>
+                        
+                        <h4>系统故障</h4>
+                        <ul>
+                            <li><strong>冗余系统使用：</strong>备份系统激活、性能评估、操作限制</li>
+                            <li><strong>MEL程序执行：</strong>故障分类、放行条件、维护要求</li>
+                            <li><strong>ECAM响应：</strong>按顺序执行ECAM动作、OEB程序、QRH参考</li>
+                        </ul>
+                        
+                        <h4>恶劣天气</h4>
+                        <ul>
+                            <li><strong>风切变：</strong>预测性风切变系统、风切变改出程序</li>
+                            <li><strong>湍流：</strong>强度分类、飞行高度调整、速度限制</li>
+                            <li><strong>低能见度运行：</strong>CAT I/II/III精密进近、HUD系统使用</li>
+                        </ul>
+                        
+                        <h4>紧急情况</h4>
+                        <ul>
+                            <li><strong>紧急下降：</strong>释压程序、氧气面罩使用、快速下降技术</li>
+                            <li><strong>紧急撤离：</strong>撤离信号、滑梯使用、人员清点</li>
+                            <li><strong>医疗急救：</strong>机上医疗设备、地面医疗协调、备降决策</li>
                         </ul>
                         
                         <h3>安全要点</h3>
